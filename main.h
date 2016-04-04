@@ -1,4 +1,7 @@
-#define DEBUG
+#pragma once
+
+// Uncomment this if you want debug feedback in the serial port
+//#define DEBUG
 
 // Arduino stuff
 #include <Arduino.h>
@@ -20,7 +23,7 @@
 // Cameron's favourite number.
 #define MAGIC_NUMBER 0x69
 
-// templates for reading/eriting to eeprom
+// templates for reading/writing to eeprom
 #include <EEPROM.h>
 template <class T> int EEPROM_writeT(int ee, const T& value)
 {
