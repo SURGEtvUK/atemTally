@@ -4,7 +4,7 @@ This contains the firmware for the project codename atemTally.
 
 What is atemTally? It's a Tally decoder for a DataVideo ITC-100 to interface with a BlackMagic ATEM video switcher.
 
-It's based on an ATmega328p micro-controller, an MCP23S17 SPI GPIO expander, a W5100 SPI NIC, a L7805 voltage regulator and a bunch of HEF4016BP switches.
+It's based on an ATmega328p micro-controller, an MCP23S17 SPI GPIO expander, a W5100 SPI NIC, a L7805 voltage regulator and a bunch of 2N3904 npn's.
 
 The ATmega328p pins are as follows:
 *  1 Reset Switch
@@ -34,5 +34,8 @@ This is for the poor sod who has to fix it when it breaks.
 
 The DB25 port follows the same pinout as the official BMD ATEM GPI & Tally box. Except that the inputs are on a tail with the wrong gender. For reference: 10->3 is IN 1->8 and 23->16 is OUT 1->8. All other pins are tied to ground.
 
+Another thing you should know, the gpio expander library addresses B0 as 0, ..., B7 as 7, A0 as 8, ..., A7 as 15.
+
 On the ITC-100, GPI (IN and OUT) 1->8 from the box corresponds to 3, 1, 8, 6, 13, 11, 15, 5, pins 4, 9, 14 are ground. Which is PVW 1, PGM 1, PVW 2, PGM 2... Port A is In1->4, Port B is In5->8. Port A corresponds to GPI OUT, and Port B corresponds to GPI IN. In the custom cable, the colour coding is as follows: white orange, orange, white green, green, white blue, blue, white brown, brown and (yellow/red for gnd).
 
+In version 2 the 4* HEF4016BP were replaced by 16* 2N3904. Nothing firmware wise was changed, just the hardware.
